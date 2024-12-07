@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="container">
+    <h1>Beneficiaries</h1>
+    <div class="row">
+        {% for beneficiary in beneficiaries %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ beneficiary.name }}</h5>
+                    <p class="card-text">{{ beneficiary.description }}</p>
+                    <p><strong>Amount Needed:</strong> ${{ beneficiary.amount_needed }}</p>
+                    <a href="{% url 'donate' beneficiary.id %}" class="btn btn-success">Donate</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <style>
+
+  body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000B2; /
+}
+
+  </style>
+  <h1 style="color: white">About Us</h1>
+  <p style="color: white">Welcome to Smart Donation, a platform dedicated to connecting donors with verified beneficiaries to make a real impact in the community.</p>
+
+
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="row gy-4">
+        <!-- Image and Video Section -->
+        <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
+          <img src="{% static 'assets/tucker-tangeman-9aAr_EFqYdc-unsplash.jpg' %}" class="img-fluid" alt="Smart Donation Overview">
+          <a href="https://www.youtube.com/watch?v=uyVCneA_e3o&pp=ygUJZG9uYXRpb25z" class="glightbox pulsating-play-btn"></a>
+        </div>
+
+
+        <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
+          <h3 style="color: white">Empowering Change, One Donation at a Time</h3>
+          <p  style="color: white" class="fst-italic">
+            At Smart Donation, we believe in the power of generosity to create a better world. Our platform bridges the gap between compassionate donors and individuals or organizations in need.
+          </p>
+          <ul style="color: white">
+            <li><i class="bi bi-check2-all"></i> <span>We ensure that every beneficiary is verified to guarantee transparency and accountability.</span></li>
+            <li><i class="bi bi-check2-all"></i> <span>Our intuitive platform makes it easy for donors to contribute securely and efficiently.</span></li>
+            <li><i class="bi bi-check2-all"></i> <span>We provide real-time updates on the impact your donations are making in the lives of others.</span></li>
+          </ul>
+          <p style="color: white">
+            Our mission is to inspire a culture of giving by connecting individuals and businesses to meaningful causes. Whether you are helping families in need, funding education, or supporting community projects, every contribution counts.
+          </p>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="donate">
+  <div class="container">
+    <h2 style="color: white">Support a Cause</h2>
+    <p style="color: white">Supporting a cause is a powerful way to make a positive impact in the world. Educating yourself about the issue, making financial donations, volunteering, advocating, and participating in fundraising events are all effective ways to contribute. By donating money, offering your time and skills, raising awareness, and purchasing cause-related products, you can help create meaningful change. Every effort counts, and together, we can make a difference in the worl</p>
+    <br>
+    <p style="color: white">Every donation makes a difference. Choose a cause and help us make an impact.</p>
+    <!-- Add donation forms or links here -->
+    <a href="https://donation-link.com" class="btn btn-success">Donate Now</a>
+  </div>
+</section>
+
+{% endblock %}
+

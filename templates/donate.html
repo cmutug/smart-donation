@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Donate to {{ beneficiary.name }}</h2>
+<p>{{ beneficiary.description }}</p>
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="amount" class="form-label">Amount (USD)</label>
+        <input type="number" class="form-control" id="amount" name="amount" min="1" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Donate</button>
+</form>
+
+<div class="container">
+    <h1>Donate to {{ beneficiary.name }}</h1>
+    <p>{{ beneficiary.description }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="amount">Donation Amount:</label>
+            <input type="number" name="amount" id="amount" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Donate</button>
+    </form>
+</div>
+
+  <script>
+  function handleDonation(event) {
+  event.preventDefault();
+  const amount = parseFloat(document.getElementById("amount").value);
+  currentAmount += amount;
+  updateProgress();
+  document.getElementById("donationSuccess").style.display = "block";
+}
+
+  </script>
+
+{% endblock %}

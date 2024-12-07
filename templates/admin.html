@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section id="admin-dashboard">
+  <h2>Manage Campaigns</h2>
+  <form id="addCampaignForm" onsubmit="addCampaign(event)">
+    <label for="title">Campaign Title</label>
+    <input type="text" id="title" required>
+    <label for="category">Category</label>
+    <input type="text" id="category" required>
+    <label for="description">Description</label>
+    <textarea id="description" required></textarea>
+    <button type="submit">Add Campaign</button>
+  </form>
+  <div id="adminCampaignList"></div>
+</section>
+
+    <script>
+    function addCampaign(event) {
+  event.preventDefault();
+  const title = document.getElementById("title").value;
+  const category = document.getElementById("category").value;
+  const description = document.getElementById("description").value;
+
+  campaigns.push({ id: campaigns.length + 1, title, category, description });
+  loadCampaigns();
+  alert("Campaign added successfully!");
+  document.getElementById("addCampaignForm").reset();
+}
+
+    </script>
+
+{% endblock %}

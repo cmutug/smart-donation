@@ -1,0 +1,302 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Donations</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2e2e2e;
+            color: #ccc;
+        }
+
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .slide h1 {
+            color: white;
+            font-size: 3em;
+            margin: 0.5em 0;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .slide p {
+            color: white;
+            font-size: 1.2em;
+            margin: 0.5em 0;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .slide a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            font-size: 1em;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease;
+        }
+
+        .slide a:hover {
+            background-color: #0056b3;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 2em;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide h1 {
+                font-size: 2em;
+            }
+
+            .slide p {
+                font-size: 1em;
+            }
+
+            .slide a {
+                font-size: 0.9em;
+            }
+        }
+
+        .jumbotron {
+            background-color: #333;
+            color: #fff;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #ff9800;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e68900;
+        }
+
+        footer {
+            background-color: #212121;
+            color: #bbb;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Sections Styling */
+        section {
+            padding: 50px 20px;
+            background-color: #333;
+            color: white;
+            margin: 20px 0;
+        }
+
+        #signup, #donate, #transparency, #impact, #community {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Hero Slider Section -->
+  <div class="hero-slider">
+    <div class="slides">
+
+      <div class="slide" style="background-image: url('{% static 'assets/benjamin-chambon-HtGgLC7HX6U-unsplash.jpg' %}');">
+        <h1>Welcome to Smart Donations</h1>
+        <p>Join a community dedicated to making a positive impact</p> <br><br>
+        <p>Smart Donation is a platform that connects generous donors with verified beneficiaries, making it easy for you to give back to those in need</p>
+        <a href="#about-us">Learn More</a>
+      </div>
+
+      <div class="slide" style="background-image: url('{% static 'assets/doug-linstedt-jEEYZsaxbH4-unsplash.jpg' %}');">
+        <h1>The Power of Giving</h1>
+        <p>Your donation can change lives</p> <br><br>
+        <p>Every donation you make helps provide food, shelter, and education to those in need. Your generosity can transform communities</p>
+        <a href="#about-us">Discover</a>
+      </div>
+
+      <div class="slide" style="background-image: url('{% static 'assets/larm-rmah-AEaTUnvneik-unsplash.jpg' %}');">
+        <h1>Our Beneficiaries</h1>
+        <p>Meet the people who benefit from your contributions.</p> <br><br>
+        <p>We connect you with individuals and communities who need your support. Learn about our verified beneficiaries and their stories."</p>
+        <a href="#signup">Get Started</a>
+      </div>
+
+      <div class="slide" style="background-image: url('{% static 'assets/joel-muniz-BErJJL_KsjA-unsplash.jpg' %}');">
+      <h1>A Simple Donation Process</h1>
+      <p>Donate in just a few clicks.</p>
+      <a href="#donate">Donate Now</a>
+    </div>
+    <!-- Slide 5 -->
+    <div class="slide" style="background-image: url('{% static 'assets/ben-white-PAiVzSmYy-c-unsplash.jpg' %}');">
+      <h1>Transparent & Secure</h1>
+      <p>Know exactly where your donations go.</p>
+      <a href="#transparency">See Our Transparency</a>
+    </div>
+    <!-- Slide 6 -->
+    <div class="slide" style="background-image: url('{% static 'assets/bill-wegener-NnbFeWRDUv4-unsplash.jpg' %}');">
+      <h1>Track Your Impact</h1>
+      <p>See the difference your donation is making.</p>
+      <a href="#impact">Track Impact</a>
+    </div>
+    <!-- Slide 7 -->
+    <div class="slide" style="background-image: url('{% static 'assets/evans-dims-qF_FSHEADxo-unsplash.jpg' %}');">
+      <h1>Join Our Community</h1>
+      <p>Become part of a global network of givers.</p>
+      <a href="#community">Get Involved</a>
+    </div>
+
+    </div>
+    <button class="nav-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+    <button class="nav-btn next-btn" onclick="nextSlide()">&#10095;</button>
+  </div>
+
+  <!-- Main Jumbotron Section -->
+  <div class="jumbotron">
+    <h1>Welcome to Smart Donation</h1>
+    <p>Your generosity has the power to change lives. Join us in making a difference today.</p>
+    <p>Make a difference by donating to verified beneficiaries.</p>
+    <a href="{% url 'beneficiaries' %}" class="btn-primary">View Beneficiaries</a>
+  </div>
+
+  <section id="about-us" class="about-section">
+    <div class="container">
+        <h3>What We Do</h3>
+        <p>Smart Donation is a platform designed to connect generous donors with individuals and causes that need support. Through our platform, you can make a difference by contributing to verified causes, ensuring your donations reach those who need them most. Whether it's medical help, educational support, or basic living assistance, your contribution can bring hope and change.</p>
+
+        <h3>How It Works</h3>
+        <p>It's simple! Just sign up, select a cause you'd like to support, and make a donation. You can track the progress of the campaigns you contribute to and receive updates about the impact of your donations. Every small act counts.</p>
+
+        <h3>Why Donate?</h3>
+        <p>Donating is more than just giving money; it's about sharing hope, creating opportunities, and empowering individuals. Smart Donation makes it easy, transparent, and impactful. Together, we can make the world a better place, one donation at a time.</p>
+    </div>
+  </section>
+
+  <section id="signup">
+    <h2>Sign Up</h2>
+    <p>Ready to make a difference? Sign up now and start donating to verified causes.</p>
+    <a href="/signup" class="btn-primary">Create Account</a>
+  </section>
+
+  <section id="donate">
+    <h2>Donate</h2>
+    <p>Your contribution can change lives. Choose a cause and make a donation today.</p>
+    <a href="/donate" class="btn-primary">Donate Now</a>
+  </section>
+
+  <section id="transparency">
+    <h2>Our Transparency</h2>
+    <p>We believe in transparency. You can track where your donations go and see the impact you're making.</p>
+    <a href="/transparency" class="btn-primary">Learn More</a>
+  </section>
+
+  <section id="impact">
+    <h2>Your Impact</h2>
+    <p>Track your donations and see the difference you're making in the lives of others.</p>
+    <a href="/impact" class="btn-primary">See Your Impact</a>
+  </section>
+
+  <section id="community">
+    <h2>Join Our Community</h2>
+    <p>Be part of a network of generous donors who are making a difference in the world.</p>
+    <a href="/community" class="btn-primary">Join Us</a>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Smart Donation. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+
+  <script>
+ let currentSlide = 0;
+
+    function showSlide(index) {
+      const slides = document.querySelector('.slides');
+      const totalSlides = document.querySelectorAll('.slide').length;
+      currentSlide = (index + totalSlides) % totalSlides;
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    // Auto-slide (optional)
+    setInterval(() => {
+      nextSlide();
+    }, 7000);
+  </script>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="donation-progress">
+  <h3>Donation Progress</h3>
+  <div class="progress-bar">
+    <div class="progress" style="width: 50%;" id="progress"></div>
+  </div>
+  <p id="progressText">50% funded</p>
+</div>
+
+  <script>
+    let currentAmount = 500;
+    let goalAmount = 1000;
+
+    function updateProgress() {
+      const progress = Math.min((currentAmount / goalAmount) * 100, 100);
+      document.getElementById("progress").style.width = `${progress}%`;
+       document.getElementById("progressText").textContent = `${Math.round(progress)}% funded`;
+}
+
+// Call updateProgress on donation update
+updateProgress();
+
+  </script>
+
+{% endblock %}

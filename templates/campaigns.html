@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="campaigns" class="campaigns section">
+  <div class="container">
+    <h2>Explore Campaigns</h2>
+    <div class="search-filter">
+      < input type="text" id="search" placeholder="Search campaigns..." onkeyup="filterCampaigns()">
+      <select id="filterCategory" onchange="filterCampaigns()">
+        <option value="">All Categories</option>
+        <option value="education">Education</option>
+        <option value="health">Health</option>
+        <option value="environment">Environment</option>
+      </select>
+    </div>
+    <div id="campaignList" class="campaign-list">
+      <!-- Campaign cards will load dynamically -->
+    </div>
+  </div>
+</section>
+
+  <script>
+
+  const campaigns = [
+  { id: 1, title: "Help Build a School", category: "education", description: "Support education in rural areas." },
+  { id: 2, title: "Healthcare for All", category: "health", description: "Provide medical aid to communities." },
+  { id: 3, title: "Plant a Million Trees", category: "environment", description: "Combat deforestation globally." }
+];
+
+function loadCampaigns() {
+  const campaignList = document.getElementById("campaignList");
+  campaignList.innerHTML = campaigns.map(campaign => `
+    <div class="campaign-card" data-category="${campaign.category}">
+      <h3>${campaign.title}</h3>
+      <p>${campaign.description}</p>
+    </div>
+  `).join('');
+}
+
+function filterCampaigns() {
+  const search = document.getElementById("search").value.toLowerCase();
+  const category = document.getElementById("filterCategory").value;
+  const cards = document.querySelectorAll(".campaign-card");
+
+  cards.forEach(card => {
+    const title = card.querySelector("h3").textContent.toLowerCase();
+    const cardCategory = card.getAttribute("data-category");
+    const matchesSearch = title.includes(search);
+    const matchesCategory = category === "" || cardCategory === category;
+
+    card.style.display = matchesSearch && matchesCategory ? "block" : "none";
+  });
+}
+
+// Load campaigns on page load
+document.addEventListener("DOMContentLoaded", loadCampaigns);
+
+
+  </script>
+
+{% endblock %}
